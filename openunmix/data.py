@@ -324,7 +324,7 @@ class AlignedDataset(UnmixDataset):
         output_file: str = "vocals.wav",
         seq_duration: Optional[float] = None,
         random_chunks: bool = False,
-        sample_rate: float = 44100.0,
+        sample_rate: float = 48000.0,
         source_augmentations: Optional[Callable] = None,
         seed: int = 42,
     ) -> None:
@@ -411,7 +411,7 @@ class SourceFolderDataset(UnmixDataset):
         nb_samples: int = 1000,
         seq_duration: Optional[float] = None,
         random_chunks: bool = True,
-        sample_rate: float = 44100.0,
+        sample_rate: float = 48000.0,
         source_augmentations: Optional[Callable] = lambda audio: audio,
         seed: int = 42,
     ) -> None:
@@ -511,7 +511,7 @@ class FixedSourcesTrackFolderDataset(UnmixDataset):
         random_chunks: bool = False,
         random_track_mix: bool = False,
         source_augmentations: Optional[Callable] = lambda audio: audio,
-        sample_rate: float = 44100.0,
+        sample_rate: float = 48000.0,
         seed: int = 42,
     ) -> None:
         """A dataset that assumes audio sources to be stored
@@ -631,7 +631,7 @@ class VariableSourcesTrackFolderDataset(UnmixDataset):
         seq_duration: Optional[float] = None,
         random_chunks: bool = False,
         random_interferer_mix: bool = False,
-        sample_rate: float = 44100.0,
+        sample_rate: float = 48000.0,
         source_augmentations: Optional[Callable] = lambda audio: audio,
         silence_missing_targets: bool = False,
     ) -> None:
@@ -829,7 +829,7 @@ class MUSDBDataset(UnmixDataset):
             *args,
             **kwargs,
         )
-        self.sample_rate = 44100.0  # musdb is fixed sample rate
+        self.sample_rate = 48000.0  # musdb is fixed sample rate
 
     def __getitem__(self, index):
         audio_sources = []

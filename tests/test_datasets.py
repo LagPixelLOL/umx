@@ -13,7 +13,7 @@ def torch_backend(request):
 def test_musdb():
     musdb = data.MUSDBDataset(download=True, samples_per_track=1, seq_duration=1.0)
     for x, y in musdb:
-        assert x.shape[-1] == 44100
+        assert x.shape[-1] == 48000
 
 
 def test_trackfolder_fix(torch_backend):

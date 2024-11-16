@@ -1,0 +1,14 @@
+python train.py \
+    --dataset sourcefolder \
+    --root /root/asmr-noise-cancellation \
+    --output /root/data/train/umx_out \
+    --checkpoint /root/data/train/umx_out \
+    --epochs 128 \
+    --batch-size 128 \
+    --lr 1e-4 \
+    --nb-workers 64 \
+    --target-dir clean \
+    --interferer-dirs noise \
+    --ext .m4a \
+    --nb-train-samples 5000 \
+    --nb-valid-samples 50

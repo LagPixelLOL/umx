@@ -43,7 +43,7 @@ except ImportError:
     pass
 
 
-def make_filterbanks(n_fft=4096, n_hop=1024, center=False, sample_rate=44100.0, method=&#34;torch&#34;):
+def make_filterbanks(n_fft=4096, n_hop=1024, center=False, sample_rate=48000.0, method=&#34;torch&#34;):
     window = nn.Parameter(torch.hann_window(n_fft), requires_grad=False)
 
     if method == &#34;torch&#34;:
@@ -168,7 +168,7 @@ class TorchISTFT(nn.Module):
         n_fft: int = 4096,
         n_hop: int = 1024,
         center: bool = False,
-        sample_rate: float = 44100.0,
+        sample_rate: float = 48000.0,
         window: Optional[nn.Parameter] = None,
     ) -&gt; None:
         super(TorchISTFT, self).__init__()
@@ -247,7 +247,7 @@ class ComplexNorm(nn.Module):
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
 <dt id="openunmix.transforms.make_filterbanks"><code class="name flex">
-<span>def <span class="ident">make_filterbanks</span></span>(<span>n_fft=4096, n_hop=1024, center=False, sample_rate=44100.0, method='torch')</span>
+<span>def <span class="ident">make_filterbanks</span></span>(<span>n_fft=4096, n_hop=1024, center=False, sample_rate=48000.0, method='torch')</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -256,7 +256,7 @@ class ComplexNorm(nn.Module):
 <span>Expand source code</span>
 <a href="https://github.com/sigsep/open-unmix-pytorch/blob/b436d5f7d40c2b8ff0b2500e9d953fa47929b261/openunmix/transforms.py#L16-L35" class="git-link">Browse git</a>
 </summary>
-<pre><code class="python">def make_filterbanks(n_fft=4096, n_hop=1024, center=False, sample_rate=44100.0, method=&#34;torch&#34;):
+<pre><code class="python">def make_filterbanks(n_fft=4096, n_hop=1024, center=False, sample_rate=48000.0, method=&#34;torch&#34;):
     window = nn.Parameter(torch.hann_window(n_fft), requires_grad=False)
 
     if method == &#34;torch&#34;:
@@ -569,7 +569,7 @@ to maximize</dd>
 </dd>
 <dt id="openunmix.transforms.TorchISTFT"><code class="flex name class">
 <span>class <span class="ident">TorchISTFT</span></span>
-<span>(</span><span>n_fft: int = 4096, n_hop: int = 1024, center: bool = False, sample_rate: float = 44100.0, window: Union[torch.nn.parameter.Parameter, NoneType] = None)</span>
+<span>(</span><span>n_fft: int = 4096, n_hop: int = 1024, center: bool = False, sample_rate: float = 48000.0, window: Union[torch.nn.parameter.Parameter, NoneType] = None)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Multichannel Inverse-Short-Time-Fourier functional
@@ -630,7 +630,7 @@ Initializes internal Module state, shared by both nn.Module and ScriptModule.</p
         n_fft: int = 4096,
         n_hop: int = 1024,
         center: bool = False,
-        sample_rate: float = 44100.0,
+        sample_rate: float = 48000.0,
         window: Optional[nn.Parameter] = None,
     ) -&gt; None:
         super(TorchISTFT, self).__init__()

@@ -107,7 +107,7 @@ def umxhq_spec(targets=None, device="cpu", pretrained=True):
         targets = ["vocals", "drums", "bass", "other"]
 
     # determine the maximum bin count for a 16khz bandwidth model
-    max_bin = utils.bandwidth_to_max_bin(rate=44100.0, n_fft=4096, bandwidth=16000)
+    max_bin = utils.bandwidth_to_max_bin(rate=48000.0, n_fft=4096, bandwidth=16000)
 
     target_models = {}
     for target in targets:
@@ -171,7 +171,7 @@ def umxhq(
         n_fft=4096,
         n_hop=1024,
         nb_channels=2,
-        sample_rate=44100.0,
+        sample_rate=48000.0,
         wiener_win_len=wiener_win_len,
         filterbank=filterbank,
     ).to(device)
@@ -194,7 +194,7 @@ def umx_spec(targets=None, device="cpu", pretrained=True):
         targets = ["vocals", "drums", "bass", "other"]
 
     # determine the maximum bin count for a 16khz bandwidth model
-    max_bin = utils.bandwidth_to_max_bin(rate=44100.0, n_fft=4096, bandwidth=16000)
+    max_bin = utils.bandwidth_to_max_bin(rate=48000.0, n_fft=4096, bandwidth=16000)
 
     target_models = {}
     for target in targets:
@@ -258,7 +258,7 @@ def umx(
         n_fft=4096,
         n_hop=1024,
         nb_channels=2,
-        sample_rate=44100.0,
+        sample_rate=48000.0,
         wiener_win_len=wiener_win_len,
         filterbank=filterbank,
     ).to(device)
@@ -281,7 +281,7 @@ def umxl_spec(targets=None, device="cpu", pretrained=True):
         targets = ["vocals", "drums", "bass", "other"]
 
     # determine the maximum bin count for a 16khz bandwidth model
-    max_bin = utils.bandwidth_to_max_bin(rate=44100.0, n_fft=4096, bandwidth=16000)
+    max_bin = utils.bandwidth_to_max_bin(rate=48000.0, n_fft=4096, bandwidth=16000)
 
     target_models = {}
     for target in targets:
@@ -347,7 +347,7 @@ def umxl(
         n_fft=4096,
         n_hop=1024,
         nb_channels=2,
-        sample_rate=44100.0,
+        sample_rate=48000.0,
         wiener_win_len=wiener_win_len,
         filterbank=filterbank,
     ).to(device)

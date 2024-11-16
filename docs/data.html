@@ -365,7 +365,7 @@ class AlignedDataset(UnmixDataset):
         output_file: str = &#34;vocals.wav&#34;,
         seq_duration: Optional[float] = None,
         random_chunks: bool = False,
-        sample_rate: float = 44100.0,
+        sample_rate: float = 48000.0,
         source_augmentations: Optional[Callable] = None,
         seed: int = 42,
     ) -&gt; None:
@@ -452,7 +452,7 @@ class SourceFolderDataset(UnmixDataset):
         nb_samples: int = 1000,
         seq_duration: Optional[float] = None,
         random_chunks: bool = True,
-        sample_rate: float = 44100.0,
+        sample_rate: float = 48000.0,
         source_augmentations: Optional[Callable] = lambda audio: audio,
         seed: int = 42,
     ) -&gt; None:
@@ -552,7 +552,7 @@ class FixedSourcesTrackFolderDataset(UnmixDataset):
         random_chunks: bool = False,
         random_track_mix: bool = False,
         source_augmentations: Optional[Callable] = lambda audio: audio,
-        sample_rate: float = 44100.0,
+        sample_rate: float = 48000.0,
         seed: int = 42,
     ) -&gt; None:
         &#34;&#34;&#34;A dataset that assumes audio sources to be stored
@@ -674,7 +674,7 @@ class VariableSourcesTrackFolderDataset(UnmixDataset):
         seq_duration: Optional[float] = None,
         random_chunks: bool = False,
         random_interferer_mix: bool = False,
-        sample_rate: float = 44100.0,
+        sample_rate: float = 48000.0,
         source_augmentations: Optional[Callable] = lambda audio: audio,
         silence_missing_targets: bool = False,
     ) -&gt; None:
@@ -872,7 +872,7 @@ class MUSDBDataset(UnmixDataset):
             *args,
             **kwargs,
         )
-        self.sample_rate = 44100.0  # musdb is fixed sample rate
+        self.sample_rate = 48000.0  # musdb is fixed sample rate
 
     def __getitem__(self, index):
         audio_sources = []
@@ -1332,7 +1332,7 @@ if __name__ == &#34;__main__&#34;:
 <dl>
 <dt id="openunmix.data.AlignedDataset"><code class="flex name class">
 <span>class <span class="ident">AlignedDataset</span></span>
-<span>(</span><span>root: str, split: str = 'train', input_file: str = 'mixture.wav', output_file: str = 'vocals.wav', seq_duration: Union[float, NoneType] = None, random_chunks: bool = False, sample_rate: float = 44100.0, source_augmentations: Union[Callable, NoneType] = None, seed: int = 42)</span>
+<span>(</span><span>root: str, split: str = 'train', input_file: str = 'mixture.wav', output_file: str = 'vocals.wav', seq_duration: Union[float, NoneType] = None, random_chunks: bool = False, sample_rate: float = 48000.0, source_augmentations: Union[Callable, NoneType] = None, seed: int = 42)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>An abstract class representing a :class:<code>Dataset</code>.</p>
@@ -1379,7 +1379,7 @@ data/train/01/vocals.wav &mdash;&gt; output</p></div>
         output_file: str = &#34;vocals.wav&#34;,
         seq_duration: Optional[float] = None,
         random_chunks: bool = False,
-        sample_rate: float = 44100.0,
+        sample_rate: float = 48000.0,
         source_augmentations: Optional[Callable] = None,
         seed: int = 42,
     ) -&gt; None:
@@ -1494,7 +1494,7 @@ data/train/01/vocals.wav &mdash;&gt; output</p></div>
 </dd>
 <dt id="openunmix.data.FixedSourcesTrackFolderDataset"><code class="flex name class">
 <span>class <span class="ident">FixedSourcesTrackFolderDataset</span></span>
-<span>(</span><span>root: str, split: str = 'train', target_file: str = 'vocals.wav', interferer_files: List[str] = ['bass.wav', 'drums.wav'], seq_duration: Union[float, NoneType] = None, random_chunks: bool = False, random_track_mix: bool = False, source_augmentations: Union[Callable, NoneType] = &lt;function FixedSourcesTrackFolderDataset.&lt;lambda&gt;&gt;, sample_rate: float = 44100.0, seed: int = 42)</span>
+<span>(</span><span>root: str, split: str = 'train', target_file: str = 'vocals.wav', interferer_files: List[str] = ['bass.wav', 'drums.wav'], seq_duration: Union[float, NoneType] = None, random_chunks: bool = False, random_track_mix: bool = False, source_augmentations: Union[Callable, NoneType] = &lt;function FixedSourcesTrackFolderDataset.&lt;lambda&gt;&gt;, sample_rate: float = 48000.0, seed: int = 42)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>An abstract class representing a :class:<code>Dataset</code>.</p>
@@ -1549,7 +1549,7 @@ train/1/bass.wav -(interferer2) &ndash;/</p>
         random_chunks: bool = False,
         random_track_mix: bool = False,
         source_augmentations: Optional[Callable] = lambda audio: audio,
-        sample_rate: float = 44100.0,
+        sample_rate: float = 48000.0,
         seed: int = 42,
     ) -&gt; None:
         &#34;&#34;&#34;A dataset that assumes audio sources to be stored
@@ -1836,7 +1836,7 @@ initialization function.</dd>
             *args,
             **kwargs,
         )
-        self.sample_rate = 44100.0  # musdb is fixed sample rate
+        self.sample_rate = 48000.0  # musdb is fixed sample rate
 
     def __getitem__(self, index):
         audio_sources = []
@@ -1900,7 +1900,7 @@ initialization function.</dd>
 </dd>
 <dt id="openunmix.data.SourceFolderDataset"><code class="flex name class">
 <span>class <span class="ident">SourceFolderDataset</span></span>
-<span>(</span><span>root: str, split: str = 'train', target_dir: str = 'vocals', interferer_dirs: List[str] = ['bass', 'drums'], ext: str = '.wav', nb_samples: int = 1000, seq_duration: Union[float, NoneType] = None, random_chunks: bool = True, sample_rate: float = 44100.0, source_augmentations: Union[Callable, NoneType] = &lt;function SourceFolderDataset.&lt;lambda&gt;&gt;, seed: int = 42)</span>
+<span>(</span><span>root: str, split: str = 'train', target_dir: str = 'vocals', interferer_dirs: List[str] = ['bass', 'drums'], ext: str = '.wav', nb_samples: int = 1000, seq_duration: Union[float, NoneType] = None, random_chunks: bool = True, sample_rate: float = 48000.0, source_augmentations: Union[Callable, NoneType] = &lt;function SourceFolderDataset.&lt;lambda&gt;&gt;, seed: int = 42)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>An abstract class representing a :class:<code>Dataset</code>.</p>
@@ -1948,7 +1948,7 @@ train/bass/track007a.wav
         nb_samples: int = 1000,
         seq_duration: Optional[float] = None,
         random_chunks: bool = True,
-        sample_rate: float = 44100.0,
+        sample_rate: float = 48000.0,
         source_augmentations: Optional[Callable] = lambda audio: audio,
         seed: int = 42,
     ) -&gt; None:
@@ -2163,7 +2163,7 @@ dataset with non-integral indices/keys, a custom sampler must be provided.</p>
 </dd>
 <dt id="openunmix.data.VariableSourcesTrackFolderDataset"><code class="flex name class">
 <span>class <span class="ident">VariableSourcesTrackFolderDataset</span></span>
-<span>(</span><span>root: str, split: str = 'train', target_file: str = 'vocals.wav', ext: str = '.wav', seq_duration: Union[float, NoneType] = None, random_chunks: bool = False, random_interferer_mix: bool = False, sample_rate: float = 44100.0, source_augmentations: Union[Callable, NoneType] = &lt;function VariableSourcesTrackFolderDataset.&lt;lambda&gt;&gt;, silence_missing_targets: bool = False)</span>
+<span>(</span><span>root: str, split: str = 'train', target_file: str = 'vocals.wav', ext: str = '.wav', seq_duration: Union[float, NoneType] = None, random_chunks: bool = False, random_interferer_mix: bool = False, sample_rate: float = 48000.0, source_augmentations: Union[Callable, NoneType] = &lt;function VariableSourcesTrackFolderDataset.&lt;lambda&gt;&gt;, silence_missing_targets: bool = False)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>An abstract class representing a :class:<code>Dataset</code>.</p>
@@ -2217,7 +2217,7 @@ train/1/marimba.wav &ndash;&gt; input target
         seq_duration: Optional[float] = None,
         random_chunks: bool = False,
         random_interferer_mix: bool = False,
-        sample_rate: float = 44100.0,
+        sample_rate: float = 48000.0,
         source_augmentations: Optional[Callable] = lambda audio: audio,
         silence_missing_targets: bool = False,
     ) -&gt; None:

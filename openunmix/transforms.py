@@ -13,7 +13,7 @@ except ImportError:
     pass
 
 
-def make_filterbanks(n_fft=4096, n_hop=1024, center=False, sample_rate=44100.0, method="torch"):
+def make_filterbanks(n_fft=4096, n_hop=1024, center=False, sample_rate=48000.0, method="torch"):
     window = nn.Parameter(torch.hann_window(n_fft), requires_grad=False)
 
     if method == "torch":
@@ -146,7 +146,7 @@ class TorchISTFT(nn.Module):
         n_fft: int = 4096,
         n_hop: int = 1024,
         center: bool = False,
-        sample_rate: float = 44100.0,
+        sample_rate: float = 48000.0,
         window: Optional[nn.Parameter] = None,
     ) -> None:
         super(TorchISTFT, self).__init__()

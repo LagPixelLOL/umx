@@ -229,7 +229,7 @@ class Separator(nn.Module):
         niter: int = 0,
         softmask: bool = False,
         residual: bool = False,
-        sample_rate: float = 44100.0,
+        sample_rate: float = 48000.0,
         n_fft: int = 4096,
         n_hop: int = 1024,
         nb_channels: int = 2,
@@ -698,7 +698,7 @@ in <code>nb_bins</code></dd>
 </dd>
 <dt id="openunmix.model.Separator"><code class="flex name class">
 <span>class <span class="ident">Separator</span></span>
-<span>(</span><span>target_models: dict, niter: int = 0, softmask: bool = False, residual: bool = False, sample_rate: float = 44100.0, n_fft: int = 4096, n_hop: int = 1024, nb_channels: int = 2, wiener_win_len: Union[int, NoneType] = 300, filterbank: str = 'torch')</span>
+<span>(</span><span>target_models: dict, niter: int = 0, softmask: bool = False, residual: bool = False, sample_rate: float = 48000.0, n_fft: int = 4096, n_hop: int = 1024, nb_channels: int = 2, wiener_win_len: Union[int, NoneType] = 300, filterbank: str = 'torch')</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Separator class to encapsulate all the stereo filtering
@@ -770,7 +770,7 @@ for deployment.</dd>
         niter: int = 0,
         softmask: bool = False,
         residual: bool = False,
-        sample_rate: float = 44100.0,
+        sample_rate: float = 48000.0,
         n_fft: int = 4096,
         n_hop: int = 1024,
         nb_channels: int = 2,

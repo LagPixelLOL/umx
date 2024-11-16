@@ -25,7 +25,7 @@ from utils import load_audio, load_info
 class TemplateDataset(UnmixDataset):
     """A template dataset class for you to implement custom datasets."""
 
-    def __init__(self, root, split='train', sample_rate=44100, seq_dur=None):
+    def __init__(self, root, split='train', sample_rate=48000, seq_dur=None):
         """Initialize the dataset
         """
         self.root = root
@@ -60,7 +60,7 @@ class Model(nn.Module):
         n_hop=1024,
         nb_channels=2,
         input_is_spectrogram=False,
-        sample_rate=44100.0,
+        sample_rate=48000.0,
     ):
         """
         Input:  (batch, channel, sample)

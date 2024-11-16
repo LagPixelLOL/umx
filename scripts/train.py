@@ -69,7 +69,7 @@ def get_statistics(args, encoder, dataset):
     dataset_scaler.random_track_mix = False
     dataset_scaler.random_interferer_mix = False
 
-    pbar = tqdm.tqdm(range(len(dataset_scaler)), disable=args.quiet)
+    pbar = tqdm.tqdm(range(min(len(dataset_scaler), 128)), disable=args.quiet)
     for ind in pbar:
         x, y = dataset_scaler[ind]
         pbar.set_description("Compute dataset statistics")
@@ -204,7 +204,8 @@ def main():
 
     args, _ = parser.parse_known_args()
 
-    torchaudio.set_audio_backend(args.audio_backend)
+    if int(torch.__version__.split(".", 1)[0]) < 2:
+        torchaudio.set_audio_backend(args.audio_backend)
     use_cuda = not args.no_cuda and torch.cuda.is_available()
     print("Using GPU:", use_cuda)
     dataloader_kwargs = {"num_workers": args.nb_workers, "pin_memory": True} if use_cuda else {}

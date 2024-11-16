@@ -200,7 +200,7 @@ class Separator(nn.Module):
         niter: int = 0,
         softmask: bool = False,
         residual: bool = False,
-        sample_rate: float = 44100.0,
+        sample_rate: float = 48000.0,
         n_fft: int = 4096,
         n_hop: int = 1024,
         nb_channels: int = 2,
